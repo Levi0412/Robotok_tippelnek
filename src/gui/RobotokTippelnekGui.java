@@ -46,7 +46,7 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtVelSzam1 = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jChckKulonbozo = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
         txtVelSzam2 = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
@@ -62,7 +62,7 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        JMenuAlapAll = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         mnuKilepes = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -198,8 +198,13 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
         txtVelSzam1.setEditable(false);
         txtVelSzam1.setText("10");
 
-        jCheckBox1.setSelected(true);
-        jCheckBox1.setText("Különböző számok");
+        jChckKulonbozo.setSelected(true);
+        jChckKulonbozo.setText("Különböző számok");
+        jChckKulonbozo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jChckKulonbozoActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("A háromszor tippelő robot kitalálandó száma:");
 
@@ -278,7 +283,7 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
                             .addComponent(txtVelSzam2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtVelSzam1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jCheckBox1)
+                        .addComponent(jChckKulonbozo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -303,7 +308,7 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox1)
+                            .addComponent(jChckKulonbozo)
                             .addComponent(jButton1))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -360,8 +365,13 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
         jMenuItem3.setText("online help");
         jMenu1.add(jMenuItem3);
 
-        jMenuItem2.setText("Alapállapot");
-        jMenu1.add(jMenuItem2);
+        JMenuAlapAll.setText("Alapállapot");
+        JMenuAlapAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMenuAlapAllActionPerformed(evt);
+            }
+        });
+        jMenu1.add(JMenuAlapAll);
         jMenu1.add(jSeparator1);
 
         mnuKilepes.setText("Kilépés");
@@ -439,7 +449,9 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
         int szam1;
         int db = felso - also + 1;
         szam1 = (int)(Math.random() * db) + also;
-        
+        int szam2;
+        szam2 = (int)(Math.random() * db) + also;
+
         txtVelSzam1.setText(szam1 + "");
         txtVelSzam2.setText(szam1 + "");
     }//GEN-LAST:event_btnGeneralActionPerformed
@@ -447,6 +459,18 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         kilepes();
     }//GEN-LAST:event_formWindowClosing
+
+    private void JMenuAlapAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMenuAlapAllActionPerformed
+        numMin.setValue(1);
+        numMax.setValue(10);
+        txtVelSzam1.setText(1 + "");
+        txtVelSzam2.setText(1 + "");
+        jChckKulonbozo.setSelected(false);
+    }//GEN-LAST:event_JMenuAlapAllActionPerformed
+
+    private void jChckKulonbozoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jChckKulonbozoActionPerformed
+        
+    }//GEN-LAST:event_jChckKulonbozoActionPerformed
 
     private void kilepes(){
         String cim = "KILÉPÉS";
@@ -496,11 +520,12 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem JMenuAlapAll;
     private javax.swing.JButton btnGeneral;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jChckKulonbozo;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
@@ -511,7 +536,6 @@ public class RobotokTippelnekGui extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
